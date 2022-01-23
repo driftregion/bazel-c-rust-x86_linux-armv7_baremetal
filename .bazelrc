@@ -1,0 +1,17 @@
+#build:arm --crosstool_top=//toolchain:arm_suite
+build:qemu --platforms=//:qemu
+
+# don't remove debug info
+build --strip=never
+
+# Enable use of platforms to select toolchains
+build --incompatible_enable_cc_toolchain_resolution
+
+# use @platforms/... instead of @bazel_tools/platforms/...
+build --incompatible_use_platforms_repo_for_constraints
+
+# debug toolchain resolution 
+# build --toolchain_resolution_debug=.*
+
+# Run the things built for qemu under qemu
+run:qemu --platforms=//:qemu --run_under="qemu-system-arm -M lm3s6965evb -semihosting -nographic -no-reboot --kernel "
