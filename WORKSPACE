@@ -1,24 +1,15 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-# http_archive(
-#     name = "rules_rust",
-#     sha256 = "531bdd470728b61ce41cf7604dc4f9a115983e455d46ac1d0c1632f613ab9fc3",
-#     strip_prefix = "rules_rust-d8238877c0e552639d3e057aadd6bfcf37592408",
-#     urls = [
-#         # `main` branch as of 2021-08-23
-#         "https://github.com/bazelbuild/rules_rust/archive/d8238877c0e552639d3e057aadd6bfcf37592408.tar.gz",
-#     ],
-# )
-
-git_repository(
-    name="rules_rust",
-    commit="bd364c7f7a27a87dc42d54da660a8dd75e2ba26e",
-    remote="https://github.com/driftregion/rules_rust",
-    shallow_since = "1642862623 +0800",
+http_archive(
+    name = "rules_rust",
+    strip_prefix = "rules_rust-67adb4c03feeb30d9af0d56f65fa2c9071b5e9a4",
+    sha256 = "a7862aa581240e2877a6d7fa4a78dc5fd06d008233be63621b44bf5a5a74dc03",
+    urls = [
+        # `main` branch as of 2022-01-24
+        "https://github.com/bazelbuild/rules_rust/archive/67adb4c03feeb30d9af0d56f65fa2c9071b5e9a4.tar.gz",
+    ],
 )
-
-load("@rules_rust//rust:repositories.bzl", "rust_repositories", "rust_repository_set")
 
 http_archive(
     name = "bazel_skylib",
@@ -28,6 +19,8 @@ http_archive(
     ],
     sha256 = "c6966ec828da198c5d9adbaa94c05e3a1c7f21bd012a0b29ba8ddbccb2c93b0d",
 )
+
+load("@rules_rust//rust:repositories.bzl", "rust_repositories", "rust_repository_set")
 
 rust_repository_set(
     name = "rust_linux_x86_64",

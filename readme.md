@@ -25,7 +25,7 @@ If this is useful to you, please hit ⭐
 # Acknowledgements
 
 - https://github.com/hexdae/bazel-arm-none-eabi
-
+- https://github.com/bazelbuild/rules_rust
 
 # TODO:
 - bindgen
