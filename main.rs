@@ -5,7 +5,7 @@ extern "C" {
 
 #[cfg(feature = "host_x86_64")]
 pub fn host() -> &'static str {
-    "linux on x86_64 "
+    "linux on x86_64"
 }
 
 #[cfg(feature = "host_cm3_qemu")]
