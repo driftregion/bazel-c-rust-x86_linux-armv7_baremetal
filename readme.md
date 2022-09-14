@@ -3,19 +3,19 @@
 Everyone knows you can [mix C and rust](https://docs.rust-embedded.org/book/interoperability/rust-with-c.html). Bazel shines at swapping compilation targets.
 
 ```
-         ┌──────────────────────────────┐
-         │                              │
-         │    ┌────────────────┐    ┌───▼──────────┐
-lib      │    │    c library   │    │  rust library│
-         │    └──────▲───────▲─┘    └───▲──────────┘
-         │           │       │          │
-       ┌─┴───────────┴┐  ┌───┴──────────┴┐
-main   │  rust main   │  │  c main       │
-       └─────────────▲┘  └───▲──────────▲┘
-                     │       │          │
-                   ┌─┴───────┴───┐    ┌─┴────────────────┐
-target             │linux x86_64 │    │ baremetal ARM CM3│
-                   └─────────────┘    └──────────────────┘
+          ┌──────────────────────────────┐
+          │                                                  │
+          │       ┌────────────────┐      ┌───▼──────────┐
+lib       │       │    c library              │      │      rust library     │
+          │       └──────▲───────▲─┘      └───▲──────────┘
+          │                   │           │                 │
+       ┌─┴───────────┴┐   ┌───┴──────────┴┐
+main   │  rust main            │   │  c main                 │
+       └─────────────▲┘   └───▲──────────▲┘
+                              │            │                │
+                           ┌─┴───────┴───┐      ┌─┴────────────────┐
+target                     │     linux x86_64。   │      │ baremetal ARM CM3.           │
+                           └─────────────┘      └──────────────────┘
 ```
 
 | target | main | lib | command |
