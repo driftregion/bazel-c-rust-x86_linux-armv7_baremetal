@@ -2,21 +2,7 @@
 
 Everyone knows you can [mix C and rust](https://docs.rust-embedded.org/book/interoperability/rust-with-c.html). Bazel shines at swapping compilation targets.
 
-```
-          ┌──────────────────────────────┐
-          │                                                  │
-          │       ┌────────────────┐      ┌───▼──────────┐
-lib       │       │    c library              │      │      rust library     │
-          │       └──────▲───────▲─┘      └───▲──────────┘
-          │                   │           │                 │
-       ┌─┴───────────┴┐   ┌───┴──────────┴┐
-main   │  rust main            │   │  c main                 │
-       └─────────────▲┘   └───▲──────────▲┘
-                              │            │                │
-                           ┌─┴───────┴───┐      ┌─┴────────────────┐
-target                     │     linux x86_64。   │      │ baremetal ARM CM3.           │
-                           └─────────────┘      └──────────────────┘
-```
+![diagram](https://user-images.githubusercontent.com/20824939/209044802-c89cc1c1-c8d2-466c-8bb5-76d18fa188b6.png)
 
 | target | main | lib | command |
 | - | - | - | - |
